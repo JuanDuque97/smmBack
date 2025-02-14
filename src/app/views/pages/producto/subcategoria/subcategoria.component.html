@@ -1,0 +1,105 @@
+<article class="card">
+
+  <figure class="itemside align-items-center">
+    <figcaption class="info d-flex justify-content-between align-items-center">
+        <h6 class="title">Lista de subcategoria  </h6>
+        <button class="btn btn-warning rounded py-2 px-1" (click)="openEditModal(subcategoriaes)">
+            <i class="fa fa-pen px-2"></i>
+        </button>
+    </figcaption>
+</figure>
+
+
+<table class="table mt-3">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let subcategoria of subcategoriaes">
+          <td>{{ subcategoria.id }}</td>
+          <td>{{ subcategoria.nombre }}</td>
+          <td>{{ subcategoria.descripcion }}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+</article>
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" rolPermisoe="dialog"
+  aria-labelledby="EditModalLabel" [style]="isVisable?'display: block;':''">
+  <div class="modal-dialog" rolPermisoe="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="EditModalLabel">Editar datos del subcategoria</h5>
+              <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="closeEditModal()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  (click)="closeEditModal()">Cancelar</button>
+              <button class="btn btn-warning" type="submit" (click)="onSubmit()">Editar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" rolPermisoe="dialog"
+     aria-labelledby="EditModalLabel" [style]="isVisable ? 'display: block;' : ''">
+  <div class="modal-dialog" rolPermisoe="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EditModalLabel">Crear rolPermiso</h5>
+        <button type="button" class="close" aria-label="Cerrar" (click)="closeEditModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="subcategoriaForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input id="nombre" formControlName="nombre" class="form-control" />
+              <div *ngIf="subcategoriaForm.get('nombre')?.invalid && (subcategoriaForm.get('nombre')?.touched || subcategoriaForm.get('nombre')?.dirty)">
+                  <small *ngIf="subcategoriaForm.get('nombre')?.errors?.required" class="text-danger">El nombre es requerido.</small>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="descripcion">Descripción:</label>
+              <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+              <div *ngIf="subcategoriaForm.get('descripcion')?.invalid && (subcategoriaForm.get('descripcion')?.touched || subcategoriaForm.get('descripcion')?.dirty)">
+                  <small *ngIf="subcategoriaForm.get('descripcion')?.errors?.required" class="text-danger">La descripción es requerida.</small>
+              </div>
+          </div>
+
+          <!-- <div class="form-group">
+              <label for="categoria">Categoría:</label>
+              <select id="categoria" formControlName="categoria" class="form-control">
+                  <option value="" disabled selected>Selecciona una categoría</option>
+                  <option *ngFor="let categoria of categorias"   [value]="categoria.id">{{ categoria.nombre }}</option>
+              </select>
+              <div *ngIf="subcategoriaForm.get('categoria')?.invalid && (subcategoriaForm.get('categoria')?.touched || subcategoriaForm.get('categoria')?.dirty)">
+                  <small *ngIf="subcategoriaForm.get('categoria')?.errors?.required" class="text-danger">La categoría es requerida.</small>
+              </div>
+          </div> -->
+
+          <button type="submit" class="btn btn-warning" [disabled]="subcategoriaForm.invalid">Crear subcategoria</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

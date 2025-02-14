@@ -1,0 +1,91 @@
+<article class="card">
+
+  <figure class="itemside align-items-center">
+    <figcaption class="info d-flex justify-content-between align-items-center">
+        <h6 class="title">Crear usuario </h6>
+        <button class="btn btn-warning rounded py-2 px-1" (click)="openEditModal(envio)">
+            <i class="fa fa-pen px-2"></i>
+        </button>
+    </figcaption>
+</figure>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let envio of envioes">
+        <td>{{ envio.id }}</td>
+        <td>{{ envio.nombre }}</td>
+        <td>{{ envio.descripcion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" envioe="dialog"
+  aria-labelledby="EditModalLabel" [style]="isVisable?'display: block;':''">
+  <div class="modal-dialog" envioe="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="EditModalLabel">Editar datos del usuario</h5>
+              <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="closeEditModal()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  (click)="closeEditModal()">Cancelar</button>
+              <button class="btn btn-warning" type="submit" (click)="onSubmit()">Editar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" envioe="dialog"
+     aria-labelledby="EditModalLabel" [style]="isVisable ? 'display: block;' : ''">
+  <div class="modal-dialog" envioe="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EditModalLabel">Crear envio</h5>
+        <button type="button" class="close" aria-label="Cerrar" (click)="closeEditModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="envioForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formContenvioName="nombre" class="form-contenvio" />
+            <div *ngIf="envioForm.get('nombre')?.invalid && (envioForm.get('nombre')?.touched || envioForm.get('nombre')?.dirty)">
+              <small *ngIf="envioForm.get('nombre')?.errors?.required" class="text-danger">El nombre es requerido.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" formContenvioName="descripcion" class="form-contenvio"></textarea>
+            <div *ngIf="envioForm.get('descripcion')?.invalid && (envioForm.get('descripcion')?.touched || envioForm.get('descripcion')?.dirty)">
+              <small *ngIf="envioForm.get('descripcion')?.errors?.required" class="text-danger">La descripción es requerida.</small>
+            </div>
+          </div>
+
+          <button class="btn btn-warning" type="submit" [disabled]="envioForm.invalid">Crear envio</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

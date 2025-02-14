@@ -1,0 +1,31 @@
+
+<section id="checkout-complete">
+    <div class="checkout-complete-header text-center">
+        <div class="rounded-circle checkmark">
+            <i>✓</i>
+        </div>
+        <h4>
+          ¡Felicitaciones! Has completado el pago.
+        </h4>
+        <p>Hemos recibido tu pedido y será entregado en los próximos 3 días.</p>
+    </div>
+    <div class="checkout-complete-summary text-center">
+        <div class="item">
+            <h5>Número de orden</h5>
+            <p>120</p>
+        </div>
+        <div class="item">
+            <h5>Fecha</h5>
+            <p>{{today | date}}</p>
+        </div>
+        <div class="item">
+            <h5>Total</h5>
+            <p>$ {{totalPrice}}</p>
+        </div>
+        <div class="item">
+            <h5>Métodos de pago</h5>
+            <p>Pago con cheque</p>
+        </div>
+    </div>
+    <button class="btn btn-warning rounded mt-4" (click)="navigateToStore()">Volver a la tienda</button>
+</section>

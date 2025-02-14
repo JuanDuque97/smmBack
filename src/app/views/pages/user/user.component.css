@@ -1,0 +1,48 @@
+/* Estilo general para el aside */
+/* Estilo para el avatar */
+.avatar {
+  width: 80px; /* Tamaño del avatar */
+  height: 80px;
+  border-radius: 50%; /* Hacer el avatar circular */
+  margin-bottom: 10px; /* Espacio entre el avatar y el texto */
+  display: block; /* Asegura que la imagen sea un bloque */
+  margin-left: auto; /* Centramos la imagen horizontalmente */
+  margin-right: auto; /* Centramos la imagen horizontalmente */
+}
+
+/* Estilo para el texto debajo del avatar */
+.nav-text {
+  display: block;
+  text-align: center; /* Centrar el texto */
+  font-size: 1.2rem;
+  color: #410020;
+  font-weight: bold;
+}
+
+/* Ajuste general para el enlace del título */
+.nav-title {
+  text-align: center; /* Centramos todo el contenido del enlace */
+  margin-bottom: 20px;
+}
+
+
+/* Estilos para los enlaces del menú de navegación */
+.nav-pills .nav-link {
+  color: #000; /* Color de texto predeterminado */
+  font-weight: bold;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #e0e0e0; /* Color al pasar el mouse */
+  color: #410020; /* Color de texto al pasar el mouse */
+}
+
+/* Estilos para los enlaces activos */
+.nav-pills .nav-link.active {
+  background-color: #410020; /* Fondo oscuro para el enlace activo */
+  color: #fff; /* Texto blanco para el enlace activo */
+}

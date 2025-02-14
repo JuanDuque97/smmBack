@@ -1,0 +1,91 @@
+<article class="card">
+
+  <figure class="itemside align-items-center">
+    <figcaption class="info d-flex justify-content-between align-items-center">
+        <h6 class="title">Lista de permisos  </h6>
+        <button class="btn btn-warning rounded py-2 px-1" (click)="openEditModal(permiso)">
+            <i class="fa fa-pen px-2"></i>
+        </button>
+    </figcaption>
+</figure>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let permiso of permisoes">
+        <td>{{ permiso.id }}</td>
+        <td>{{ permiso.nombre }}</td>
+        <td>{{ permiso.descripcion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" permisoe="dialog"
+  aria-labelledby="EditModalLabel" [style]="isVisable?'display: block;':''">
+  <div class="modal-dialog" permisoe="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="EditModalLabel">Editar datos del usuario</h5>
+              <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
+                  (click)="closeEditModal()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  (click)="closeEditModal()">Cancelar</button>
+              <button class="btn btn-warning" type="submit" (click)="onSubmit()">Editar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" permisoe="dialog"
+     aria-labelledby="EditModalLabel" [style]="isVisable ? 'display: block;' : ''">
+  <div class="modal-dialog" permisoe="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EditModalLabel">Crear Permiso</h5>
+        <button type="button" class="close" aria-label="Cerrar" (click)="closeEditModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="permisoForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formContpermisoName="nombre" class="form-contpermiso" />
+            <div *ngIf="permisoForm.get('nombre')?.invalid && (permisoForm.get('nombre')?.touched || permisoForm.get('nombre')?.dirty)">
+              <small *ngIf="permisoForm.get('nombre')?.errors?.required" class="text-danger">El nombre es requerido.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" formContpermisoName="descripcion" class="form-contpermiso"></textarea>
+            <div *ngIf="permisoForm.get('descripcion')?.invalid && (permisoForm.get('descripcion')?.touched || permisoForm.get('descripcion')?.dirty)">
+              <small *ngIf="permisoForm.get('descripcion')?.errors?.required" class="text-danger">La descripción es requerida.</small>
+            </div>
+          </div>
+
+          <button class="btn btn-warning" type="submit" [disabled]="permisoForm.invalid">Crear permiso</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

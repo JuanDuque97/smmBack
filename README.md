@@ -55,7 +55,7 @@ Se realizar la entrega de credenciaeles para el pase de datos
    Descripción: Usuario con acceso completo al sistema para gestionar todos los aspectos de la plataforma.
    Permisos:
    Administrar usuarios (Clientes y Coordinadores)
-   Gestionar productos y categorías
+   Gestionar producto y categorías
    Ver reportes y análisis
    Credenciales:
   ### Usuario: ejemplo_administrador@correo.com
@@ -63,3 +63,4 @@ Se realizar la entrega de credenciaeles para el pase de datos
 
 
 # smmback
+# Prueba_talata_back

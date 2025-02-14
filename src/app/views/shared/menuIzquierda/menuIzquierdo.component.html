@@ -1,0 +1,49 @@
+<nav class="nav flex-lg-column nav-pills mb-4">
+  <a class="nav-link nav-title"  routerLinkActive="active">
+    <!-- Avatar en la parte superior -->
+    <i class="fas fa-user-circle"></i>
+    <p class="nav-text">Bienvenido</p>
+    <span class="nav-text">{{profile.nombre}}</span>
+  </a>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle"  id="securityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Seguridad
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="securityDropdown">
+      <li><a class="dropdown-item" (click)="navigateToRoles()">Roles</a></li>
+      <li><a class="dropdown-item" (click)="navigateToPermisos()">Permisos</a></li>
+      <li><a class="dropdown-item" (click)="navigateToPermisosPorRol()">Permisos por rol</a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Producto
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="productDropdown">
+      <li><a class="dropdown-item" (click)="navigateToProducto()">Producto</a></li>
+      <li><a class="dropdown-item" (click)="navigateToProveedor()">Proveedor</a></li>
+      <li><a class="dropdown-item" (click)="navigateToCategoria()">Categoría</a></li>
+      <li><a class="dropdown-item" (click)="navigateToSubcategoria()">Subcategoría</a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="orderDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Pedido
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="orderDropdown">
+      <li><a class="dropdown-item" (click)="navigateToPedido()">Pedido</a></li>
+      <li><a class="dropdown-item" (click)="navigateToMedioEnvio()">Medio Envío</a></li>
+      <li><a class="dropdown-item" (click)="navigateToDetallePedido()">Detalle de pedido</a></li>
+      <li><a class="dropdown-item" (click)="navigateToFactura()">Factura</a></li>
+      <li><a class="dropdown-item" (click)="navigateToEnvio()">Envío</a></li>
+    </ul>
+  </li>
+
+
+  <a class="nav-link" href="#" (click)="logout($event)">Finalizar la sesión</a>
+</nav>
