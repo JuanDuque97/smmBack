@@ -23,7 +23,7 @@
           </li>
 
 
-          <li *ngIf="profile.rol == 2 && profile.rol == 3" class="nav-item dropdown">
+          <li *ngIf=" profile.rol == 2 || profile.rol == 3" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Producto
             </a>
@@ -36,7 +36,7 @@
           </li>
 
 
-          <li  *ngIf="profile.rol == 2 && profile.rol == 3" class="nav-item dropdown">
+          <li  *ngIf="profile.rol == 3" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="orderDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Pedido
             </a>
